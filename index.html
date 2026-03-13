@@ -3,245 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1XBET PROTOS AI: نظام VIP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <title>PROTOS AI: نظام VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0b1a2a; 
-            --bg-light: #152b42; 
-            --xbet-blue: #2e8bce;
-            --xbet-green: #5ebc3b; 
-            --xbet-green-hover: #4ca62b;
-            --xbet-accent: #f0f3f5;
-            --neon-shadow: 0 0 20px rgba(94, 188, 59, 0.5);
+            --melbet-blue: #0b1a2a;
+            --melbet-dark: #050c14;
+            --melbet-yellow: #f5ad06; /* Акцентный желтый Melbet */
+            --melbet-white: #ffffff;
         }
 
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Cairo', sans-serif;
-            background: radial-gradient(circle at top, var(--bg-light) 0%, var(--bg-deep) 100%);
+            background-color: var(--melbet-dark);
             color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
+            text-align: center;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; text-align: center; }
-
-        /* --- HEADER --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-        }
-        .logo { font-weight: 900; font-size: 26px; letter-spacing: -1px; font-family: 'Montserrat', sans-serif; }
-        .logo span { color: var(--xbet-blue); margin-right: 5px; }
-        .flag-gif { width: 60px; height: auto; border-radius: 4px; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
-
-        /* --- STEPS --- */
-        .step-content { display: none; animation: fadeIn 0.4s ease; }
-        .active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- TYPOGRAPHY --- */
-        h1 { font-weight: 700; font-size: 1.8rem; margin-bottom: 20px; line-height: 1.4; }
-        .subtitle { font-size: 1rem; line-height: 1.6; opacity: 0.9; max-width: 750px; margin: 0 auto 30px; }
-        .status-box { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; margin-bottom: 30px; display: inline-block; border: 1px solid rgba(255,255,255,0.1); }
-
-        /* --- BUTTONS --- */
-        .btn-main {
-            background: linear-gradient(45deg, var(--xbet-green), var(--xbet-green-hover));
-            border: none;
-            padding: 15px 40px;
-            color: white;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(94, 188, 59, 0.3);
-            font-family: 'Cairo', sans-serif;
-        }
-        .btn-main:hover { transform: scale(1.05); box-shadow: var(--neon-shadow); }
-
-        /* --- ERROR MESSAGE --- */
-        #idErrorMsg {
-            display: none;
-            background: rgba(255, 50, 50, 0.1);
-            border: 1px solid #ff4444;
-            color: #ff4444;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-weight: 600;
-            line-height: 1.5;
-            animation: fadeIn 0.3s ease;
         }
 
-        /* --- WINNERS --- */
-        .winner-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 25px;
+        /* Header & Logo Section */
+        header {
+            padding: 20px;
+            background: linear-gradient(180deg, var(--melbet-blue) 0%, var(--melbet-dark) 100%);
+            border-bottom: 2px solid var(--melbet-yellow);
+        }
+
+        .flag { width: 60px; margin-bottom: 10px; border-radius: 4px; }
+
+        /* Main Screen */
+        .hero-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--melbet-white);
+            margin-top: 20px;
+        }
+        .hero-title span { color: var(--melbet-yellow); }
+
+        .hero-description {
+            font-size: 16px;
+            color: #b0b5bb;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .stats-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--melbet-yellow);
+            margin: 20px 0;
             text-align: right;
         }
-        .winner-card {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255,255,255,0.05);
-            padding: 12px;
+
+        .main-btn {
+            background: linear-gradient(180deg, var(--melbet-yellow) 0%, #d49505 100%);
+            color: #000;
+            border: none;
+            padding: 18px 35px;
+            font-size: 19px;
+            font-weight: 900;
             border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(245, 173, 6, 0.3);
+            transition: 0.3s;
+            text-transform: uppercase;
+            width: 100%;
         }
-        .winner-card img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--xbet-green); object-fit: cover; }
-        .winner-card b { color: var(--xbet-green); font-size: 1.1rem; }
 
-        /* --- FOOTER --- */
-        footer { margin-top: 60px; padding: 40px 0; border-top: 1px solid #1e3a5f; }
-        .pay-logos { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 25px; flex-wrap: wrap; }
-        .pay-logos img { height: 35px; filter: brightness(1.2); }
-        .zain-cash { background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; color: #ff0000; }
-        .copy { font-size: 0.75rem; color: #777; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+        .main-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 173, 6, 0.5);
+        }
 
-        /* --- CHAT --- */
-        #chat-trigger { position: fixed; bottom: 25px; left: 25px; width: 60px; height: 60px; background: var(--xbet-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.5); font-size: 24px; }
-        #chat-window { position: fixed; bottom: 100px; left: 25px; width: 320px; height: 450px; background: var(--bg-deep); border: 1px solid #1e3a5f; border-radius: 12px; display: none; flex-direction: column; z-index: 1000; overflow: hidden; }
-        .chat-header { background: var(--xbet-blue); padding: 12px 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        #chat-content { flex: 1; padding: 15px; overflow-y: auto; font-size: 0.85rem; text-align: right; }
-        .chat-msg { margin-bottom: 12px; }
-        .chat-msg b { color: var(--xbet-green); }
+        /* Winners Section */
+        .winners-section {
+            margin-top: 40px;
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: right;
+        }
 
-        /* --- INPUTS --- */
-        .id-input { background: rgba(0,0,0,0.3); border: 1px solid #1e3a5f; padding: 15px; color: white; border-radius: 8px; width: 260px; margin-bottom: 15px; text-align: center; font-size: 1.1rem; }
+        .winner-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .winner-amount { color: var(--melbet-yellow); font-weight: bold; }
+
+        /* Overlay & Modals */
+        .step-content { display: none; padding: 20px; animation: fadeIn 0.5s ease; }
+        .active { display: block !important; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        input[type="text"], input[type="file"] {
+            width: 90%;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: var(--melbet-blue);
+            padding: 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-weight: bold;
+        }
+        .game-card:hover { border-color: var(--melbet-yellow); }
+
+        /* Chat */
+        #chat-box {
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            width: 220px;
+            background: rgba(0,0,0,0.9);
+            font-size: 13px;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: right;
+            border: 1px solid var(--melbet-yellow);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <div class="logo">1XBET<span>PROTOS AI</span></div>
-        <img src="https://cdn.pixabay.com/animation/2022/10/26/18/35/18-35-15-776_512.gif" alt="Iraq Flag" class="flag-gif">
+        <img src="https://www.crossed-flag-pins.com/animated-flag-gif/gifs/Iraq_240-animated-flag-gifs.gif" class="flag" alt="Iraq">
+        <div class="hero-title">🤖 PROTOS AI v4.2: <span>تم الاتصال</span></div>
     </header>
 
     <div id="step1" class="step-content active">
-        <h1>🤖 <b>PROTOS AI v4.2: تم إنشاء الاتصال بنجاح.</b></h1>
-        <p class="subtitle">
-            يقوم نظامنا بتحليل الثغرات في خوارزميات الكازينو باستخدام الشبكات العصبية. حالياً، نقوم بمراقبة أكثر من 140 نظاماً لنوفر لك توقعات بأعلى نسبة فوز ممكنة.<br><br>
-            مع PROTOS AI، أنت لا تلعب ضد الكازينو — أنت تلعب بميزة رياضية حقيقية.
-        </p>
-        <div class="status-box">
-            📊 <b>حالة النظام:</b> <span style="color:var(--xbet-green)">نشط</span> &nbsp; 
-            🎯 <b>دقة الـ AI:</b> <span style="color:#ffcc00">94.8%</span> &nbsp; 
-            👥 <b>الأماكن المتبقية:</b> <span style="color:#ff4444">7/100</span>
+        <div class="hero-description">
+            نظامنا يحلل الثغرات في خوارزميات Melbet باستخدام الذكاء الاصطناعي. حالياً نراقب أكثر من 140 نظاماً لنوفر لك أدق التوقعات لضمان الربح.
         </div>
-        <p><b>اضغط على الزر أدناه لتفعيل وصولك والحصول على أول توقع لك:</b></p>
-        <button class="btn-main" onclick="goToStep(2)">انضم إلى الفريق الآن</button>
+        <div class="stats-box">
+            ✅ <b>الحالة:</b> نشط الآن <br>
+            🎯 <b>الدقة:</b> 94.8% <br>
+            👥 <b>الأماكن المتاحة:</b> 7 من 100
+        </div>
+        <p>مع PROTOS AI أنت لا تلعب بالحظ، أنت تلعب بذكاء رياضي متفوق.</p>
+        <button class="main-btn" onclick="nextStep(2)">انضم للفريق الآن</button>
 
-        <div style="margin-top: 60px; text-align: right;">
-            <h3 style="border-right: 4px solid var(--xbet-blue); padding-right: 15px;">🏆 الرابحون من العراق هذا الأسبوع:</h3>
-            <div class="winner-grid">
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=12"><div><small>ID: 152**441</small><br><b>5,250,000 د.ع</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=13"><div><small>ID: 153**902</small><br><b>3,100,000 د.ع</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=14"><div><small>ID: 154**115</small><br><b>12,400,000 د.ع</b></div></div>
-                <div class="winner-card"><img src="https://randomuser.me/api/portraits/men/32.jpg"><div><small>ID: 155**773</small><br><b>1,850,000 د.ع</b></div></div>
-            </div>
+        <div class="winners-section">
+            <h3>🏆 الرابحون اليوم من العراق</h3>
+            <div class="winner-item"><span>مصطفى ك.</span> <span class="winner-amount">1,400,000 د.ع</span></div>
+            <div class="winner-item"><span>كرار ح.</span> <span class="winner-amount">875,000 د.ع</span></div>
+            <div class="winner-item"><span>عباس و.</span> <span class="winner-amount">2,200,000 د.ع</span></div>
         </div>
     </div>
 
     <div id="step2" class="step-content">
-        <h2 style="color:#ff4444">⚠️ الحساب غير نشط!</h2>
-        <p>سجل الآن وأدخل الـ ID الخاص بك حتى يتمكن النظام من ربط حسابك بخوارزمية الـ AI.</p>
-        <button class="btn-main" style="background:#1e3a5f; box-shadow: none; font-size: 1rem; color: #fff;" onclick="window.open('https://standarttrack.com/?promo=983eb7d4-6826-42a9-a980-1bf1f16b995d&target=register')">🔗 رابط التسجيل (1XBET)</button>        
-        <div style="margin-top: 30px;">
-            <input type="text" id="idInput" class="id-input" placeholder="أدخل رقم الـ ID">
-            <br>
-            <button class="btn-main" onclick="validateID()">تأكيد الحساب</button>
-            
-            <div id="idErrorMsg">
-                ❌ حسابك لا يحتوي على رصيد كافٍ لتفعيل الربط.<br><br>
-                بدون إيداع مبلغ <b>5,500 دينار عراقي (أو ما يعادل 5$)</b>، لن يتمكن البوت من تحليل حسابك وتقديم توقعات دقيقة. يرجى شحن الرصيد أولاً.
-            </div>
-        </div>
+        <h2 style="color: var(--melbet-yellow)">⚠️ الحساب غير مفعل!</h2>
+        <p>حتى يبدأ الذكاء الاصطناعي بإرسال الإشارات لحسابك، يجب عليك:</p>
+        <p>1. <b>التسجيل</b> من الرابط أدناه.<br>
+           2. <b>إيداع (5,500 د.ع كحد أدنى)</b> لتفعيل الخوارزمية الخاصة بك.</p>
+        
+        <button class="main-btn" onclick="window.open('https://refpa3665.com/L?tag=d_5343275m_59793c_&site=5343275&ad=59793&r=registration')">🔗 سجل في Melbet من هنا</button>
+        
+        <br><br>
+        <input type="text" id="userID" placeholder="أدخل الـ ID الخاص بك">
+        <button class="main-btn" style="font-size: 16px; padding: 12px;" onclick="validateID()">استمرار</button>
     </div>
 
-    <footer>
-        <div class="pay-logos">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
-            <div class="zain-cash">Zain Cash</div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-        </div>
-        <div class="copy">
-            جميع الحقوق محفوظة © 2026 1XBET PROTOS AI: نظام VIP للمحترفين. العب بمسؤولية.<br>
-            خوارزمية PROTOS AI محمية بموجب حقوق النشر. يعتمد النجاح على استقرار الاتصال بالخادم.
-        </div>
-    </footer>
-</div>
-
-<div id="chat-trigger" onclick="toggleChat()">💬</div>
-<div id="chat-window">
-    <div class="chat-header">
-        <span>دردشة VIP (أونلاين)</span>
-        <span onclick="toggleChat()" style="cursor:pointer">✕</span>
+    <div id="step3" class="step-content">
+        <h2>تأكيد الإيداع</h2>
+        <p>يرجى إرسال لقطة شاشة (Screenshot) لرصيدك (5,500 د.ع أو أكثر) ليقوم النظام بربط حسابك بالبوت.</p>
+        <input type="file" id="screenshot" accept="image/*">
+        <button class="main-btn" onclick="validateScreen()">تفعيل البوت</button>
     </div>
-    <div id="chat-content">
+
+    <div id="step4" class="step-content">
+        <h2 style="color: var(--melbet-yellow)">اختر اللعبة للتحليل:</h2>
+        <div class="games-grid">
+            <div class="game-card" onclick="getSignal('Aviator')">✈️ Aviator</div>
+            <div class="game-card" onclick="getSignal('Mines')">💣 Mines</div>
+            <div class="game-card" onclick="getSignal('Penalty')">⚽ Penalty</div>
+            <div class="game-card" onclick="getSignal('Mcrash')">🚀 Crash</div>
+        </div>
+        <div id="signal-display" style="margin-top: 30px; font-weight: bold; color: var(--melbet-yellow); font-size: 26px;"></div>
+        
+        <div id="chat-box">
+            <b>دردشة مباشرة:</b>
+            <div id="messages"></div>
+        </div>
     </div>
 </div>
 
 <script>
-    function goToStep(s) {
-        document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-        document.getElementById('step' + s).classList.add('active');
-        window.scrollTo(0,0);
-        
-        if(s === 2) {
-            startChat();
-        }
+    function nextStep(step) {
+        document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+        document.getElementById('step' + step).classList.add('active');
     }
 
     function validateID() {
-        const val = document.getElementById('idInput').value;
-        const errorMsg = document.getElementById('idErrorMsg');
-        
-        if(val.length >= 5 && /^\d+$/.test(val)) {
-            errorMsg.style.display = 'block';
+        const id = document.getElementById('userID').value;
+        if (id.length >= 5) {
+            nextStep(3);
         } else {
-            alert("تنبيه: يجب إدخال رقم ID صحيح.");
-            errorMsg.style.display = 'none';
+            alert('خطأ! يرجى إدخال ID صحيح.');
         }
     }
 
-    function toggleChat() {
-        const win = document.getElementById('chat-window');
-        win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+    function validateScreen() {
+        const file = document.getElementById('screenshot').files[0];
+        if (file) {
+            alert('جاري التحقق... تم اكتشاف الإيداع بنجاح!');
+            nextStep(4);
+            startChat();
+        } else {
+            alert('يرجى رفع لقطة الشاشة للإيداع.');
+        }
+    }
+
+    function getSignal(game) {
+        const display = document.getElementById('signal-display');
+        display.innerHTML = "جاري تحليل البيانات...";
+        setTimeout(() => {
+            const coef = (Math.random() * (1.8 - 1.2) + 1.2).toFixed(2);
+            display.innerHTML = `توقعات ${game}: <br> اسحب عند x${coef}`;
+        }, 1500);
     }
 
     function startChat() {
-        const chatBox = document.getElementById('chat-content');
-        const names = ["مصطفى_IQ", "أبو_حيدر", "عباس_الملك", "سجاد_برو", "بنت_البصرة", "كرار_X"];
-        const texts = [
-            "توني فزت بـ x1.40 بطيارة Aviator! 🔥",
-            "بوت الماينز خنفشاري، فتحت 7 قنابل!",
-            "شباب صدك شغال؟ سحبت 50 ألف بدقايق!",
-            "إي والله سريع، اليوم الحظ فول.",
-            "شكراً على التوقعات، PROTOS هو المستقبل!",
-            "ربحت 35 ألف ثانية، عاشت إيدكم.",
-            "أحد شاف الـ x3 بالطيارة اليوم؟"
-        ];
-
+        const msgs = ["شغال 100%!", "عاشت ايدك سحبت x1.5", "البوت حقيقي يا شباب", "توني ربحت 50 ألف دينار"];
+        const box = document.getElementById('messages');
         setInterval(() => {
-            if(Math.random() > 0.4) {
-                const msg = document.createElement('div');
-                msg.className = 'chat-msg';
-                msg.innerHTML = `<b>${names[Math.floor(Math.random()*names.length)]}:</b> ${texts[Math.floor(Math.random()*texts.length)]}`;
-                chatBox.appendChild(msg);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
+            const m = msgs[Math.floor(Math.random() * msgs.length)];
+            const div = document.createElement('div');
+            div.innerHTML = `• ${m}`;
+            box.prepend(div);
         }, 4000);
     }
 </script>
